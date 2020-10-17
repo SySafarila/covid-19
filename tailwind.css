@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.bg-dim {
+  background-color: #15202b;
+}
+
+.bg-dim-light {
+  background-color: #192734;
+}
