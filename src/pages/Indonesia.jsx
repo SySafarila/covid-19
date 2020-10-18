@@ -3,9 +3,8 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import moment from "moment";
-import { Link } from "react-router-dom";
 
-const Global = () => {
+const Indonesia = () => {
   const [confirmed, setConfirmed] = useState(0);
   const [recovered, setRecovered] = useState(0);
   const [deaths, setDeaths] = useState(0);
@@ -15,9 +14,9 @@ const Global = () => {
   const deathPercent = (deaths / confirmed) * 100;
 
   useEffect(() => {
-    const getGlobal = async () => {
+    const getIndonesia = async () => {
       await axios
-        .get("https://covid19.mathdro.id/api")
+        .get("https://covid19.mathdro.id/api/countries/indonesia")
         .then((res) => {
           //   console.log(res);
           setConfirmed(res.data.confirmed.value);
@@ -29,8 +28,8 @@ const Global = () => {
           console.log(err);
         });
     };
-    getGlobal();
-    document.title = "Covid-19 | Global";
+    getIndonesia();
+    document.title = "Covid-19 | Indonesia";
   });
 
   return (
@@ -77,9 +76,6 @@ const Global = () => {
             </p>
           </div>
         </div>
-        <h1 className="text-center text-white hover:text-blue-400">
-          <Link to="/global/details">Get Details</Link>
-        </h1>
         <h1 className="text-center text-white">
           Last update : {moment(lastUpdate, "YYYYMMDD").fromNow()}
         </h1>
@@ -88,4 +84,4 @@ const Global = () => {
   );
 };
 
-export default Global;
+export default Indonesia;
