@@ -12,7 +12,7 @@ const GlobalDetail = () => {
       await axios
         .get("https://covid19.mathdro.id/api/confirmed")
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setDatas(res.data);
           setLoaded(true);
         })
